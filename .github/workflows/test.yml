@@ -11,8 +11,14 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
+
+            - name: Derive appropriate SHAs for base and head for `nx affected` commands
+              uses: nrwl/nx-set-shas@v3
+
             - uses: nx-augustinesmith/deployed-commit-action@v1
               with:
                 GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                 COMMIT_MESSAGE: ${{ github.event.commits[0].message }}
                 COMMITTER: ${{ github.event.commits[0].author.username }}
+                BASE: ${{ env.NX_BASE }}
+                HEAD: ${{ env.NX_HEAD }}
