@@ -11,7 +11,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
-            - uses: nx-augustinesmith/deployed-commit-action/deployed-commit-action@v1
+            - uses: nx-augustinesmith/deployed-commit-action@v1
               with:
                 GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
                 COMMIT_MESSAGE: ${{ github.event.commits[0].message }}
