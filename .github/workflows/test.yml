@@ -14,9 +14,13 @@ jobs:
           - uses: actions/setup-node@v3
             with:
               node-version-file: '.nvmrc'
+              cache: yarn
 
           - name: Derive appropriate SHAs for base and head for `nx affected` commands
             uses: nrwl/nx-set-shas@v3
+
+          - name: Install Dependencies
+            run: yarn install
 
           - uses: nx-augustinesmith/deployed-commit-action@v1
             with:
