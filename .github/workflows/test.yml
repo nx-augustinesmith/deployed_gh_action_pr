@@ -17,6 +17,9 @@ jobs:
             with:
               node-version-file: '.nvmrc'
 
+          - name: Derive appropriate SHAs for base and head for `nx affected` commands
+            uses: nrwl/nx-set-shas@v3
+
           - uses: nx-augustinesmith/deployed-commit-action@v1
             with:
               GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
