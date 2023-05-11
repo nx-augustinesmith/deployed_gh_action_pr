@@ -13,6 +13,6 @@ jobs:
             - uses: actions/checkout@v2
             - uses: nx-augustinesmith/deployed-commit-action@v1
               with:
-                GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
                 COMMIT_MESSAGE: ${{ github.event.commits[0].message }}
                 COMMITTER: ${{ github.event.commits[0].author.username }}
